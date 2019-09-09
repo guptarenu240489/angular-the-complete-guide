@@ -1,1 +1,1 @@
-<p>Hey Calling from first component</p>
+<p [ngClass]="{online: serverStatus === 'online', offline: serverStatus === 'offline'}">Server calling with ID {{ serverId }} and is currently {{ getServerStatus() }}</p>
