@@ -4,11 +4,13 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { BasicHighlighterDirective } from './directives/app.basicHighlighter.directive';
+import { BetterBasicHighlighterDirective } from './directives/better-basic-highlighter.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BasicHighlighterDirective
+    BasicHighlighterDirective,
+    BetterBasicHighlighterDirective
   ],
   imports: [
     BrowserModule,
