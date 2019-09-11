@@ -2,19 +2,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
+
 import { AppComponent } from './app.component';
-import { BasicHighlighterDirective } from './directives/app.basicHighlighter.directive';
-import { BetterBasicHighlighterDirective } from './directives/better-basic-highlighter.directive';
+import { AccountComponent } from './account/account.component';
+import { NewAccountComponent } from './new-account/new-account.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BasicHighlighterDirective,
-    BetterBasicHighlighterDirective
+    AccountComponent,
+    NewAccountComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
