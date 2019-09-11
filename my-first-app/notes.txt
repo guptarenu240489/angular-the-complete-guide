@@ -1,0 +1,12 @@
+1. If you want to inject a service, within another service, always provice the services inside
+app module, else their instance will not be available within service.
+
+2. If you want to inject service inside conponent, they can be provided in app conponent.
+
+3. Same insance of service will travel from its parent to all child component.
+
+4. If you provide a service inside a component, all childs of this component will share same instance
+but not parent of this component.
+
+5. Be careful about when and where to provide a service.
+
