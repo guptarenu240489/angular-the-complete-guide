@@ -1,12 +1,19 @@
-1. If you want to inject a service, within another service, always provice the services inside
-app module, else their instance will not be available within service.
+1. with routerLink = "/servers" ==> it is absolute path and will be added too domain.
+e.g localhost:4200/servers
 
-2. If you want to inject service inside conponent, they can be provided in app conponent.
+2. with routerLink = "server" ==> this is relative path and will be added to current path.
 
-3. Same insance of service will travel from its parent to all child component.
+if current path is localhost:4200 ==> localhost:4200/server
+if current path is localhost:4200/servers ==> localhost:4200/servers/server
 
-4. If you provide a service inside a component, all childs of this component will share same instance
-but not parent of this component.
+2. with routerLink = "../server" ==> it will go one level up and then add server
 
-5. Be careful about when and where to provide a service.
+e.g
+if current path is localhost:4200/servers ==> localhost:4200/server
 
+
+=== Naviagting programmatically ===
+ loadServers() {
+    // navigating programmatically
+    this.router.navigate(['/servers']);
+  }
