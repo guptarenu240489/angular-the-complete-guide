@@ -12,6 +12,9 @@ import { UserComponent } from './users/user/user.component';
 import { EditServerComponent } from './servers/edit-server/edit-server.component';
 import { ServerComponent } from './servers/server/server.component';
 import { ServersService } from './servers/servers.service';
+import { AuthService } from './auth.service';
+import { AuthGuard } from './auth-guard.service';
+import { ServerResolver } from './servers/server/server-resolve.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,7 @@ import { ServersService } from './servers/servers.service';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [ServersService],
+  providers: [ServersService, AuthService, AuthGuard, ServerResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
