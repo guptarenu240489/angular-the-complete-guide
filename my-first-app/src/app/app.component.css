@@ -5,3 +5,8 @@
 input.ng-invalid.ng-touched {
   border: solid 1px darkred;
 }
+
+.help-block {
+  color: #10106e;
+  font-weight: bold;
+}
