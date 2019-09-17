@@ -2,11 +2,6 @@
   margin-top: 30px;
 }
 
-input.ng-invalid.ng-touched {
-  border: solid 1px darkred;
-}
-
-.help-block {
-  color: orangered;
-  font-weight: bold;
+.row {
+  margin: 20px 0;
 }

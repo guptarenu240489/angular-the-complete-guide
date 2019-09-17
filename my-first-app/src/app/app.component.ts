@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -7,44 +7,29 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  genders = ['male', 'female'];
-  signupForm: FormGroup;
-  forbiddenUserNames = ['test', 'user'];
+  loadedPosts = [];
 
-  constructor() {
-    console.log('const');
-  }
-  ngOnInit() {
-    console.log('init');
-    this.signupForm = new FormGroup({
-      'userData': new FormGroup({
-        'username': new FormControl(null, [Validators.required, this.forbbidenNames.bind(this)]),
-        'email': new FormControl(null, [Validators.required, Validators.email]),
-      }),
-      'gender': new FormControl('female')
-    });
-    // hooks to subscribe to any value change
-    this.signupForm.valueChanges.subscribe(
-      value => console.log(value)
-    )
-    // hook to subscribe to any status change in form
-    this.signupForm.statusChanges.subscribe(
-      status => console.log(status)
-    )
-    // hook to listen to value change on particular field
-    this.signupForm.get('userData.username').valueChanges.subscribe(
-      status => console.log(status)
-    )
+  constructor(private http: HttpClient) {}
+
+  ngOnInit() {}
+
+  onCreatePost(postData: { title: string; content: string }) {
+    // Send Http request
+    this.http
+      .post(
+        'https://ng-complete-guide-c56d3.firebaseio.com/posts.json',
+        postData
+      )
+      .subscribe(responseData => {
+        console.log(responseData);
+      });
   }
 
-  onSubmit() {
-    console.log(this.signupForm);
+  onFetchPosts() {
+    // Send Http request
   }
 
-  forbbidenNames (control: FormControl) : {[s: string]: boolean} {
-    if(this.forbiddenUserNames && this.forbiddenUserNames.indexOf(control.value) !== -1) {
-      return {'nameIsForbidden': true}
-    }
-    return null;
+  onClearPosts() {
+    // Send Http request
   }
 }
